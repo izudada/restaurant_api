@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Configuration for custom user model
+AUTH_USER_MODEL = "restaurant.Restaurant"
 
 # Application definition
 
