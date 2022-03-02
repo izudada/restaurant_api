@@ -122,3 +122,6 @@ class Menu(TrackingModel, models.Model):
     dish = models.CharField(max_length=200)
     description = models.TextField()
     image_url = models.URLField(default="https://res.cloudinary.com/dro7pyxba/image/upload/v1646237011/restaurant_api/dummy_amippk.jpg")
+
+    def __str__(self):
+        return self.dish
