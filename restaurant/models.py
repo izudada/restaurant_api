@@ -121,3 +121,4 @@ class Menu(TrackingModel, models.Model):
     restaurant = models.ForeignKey(Restaurant, related_name="restaurant", on_delete= models.CASCADE, null=True)
     dish = models.CharField(max_length=200)
     description = models.TextField()
+    image_url = models.URLField()
