@@ -6,5 +6,10 @@ from .models import Menu, Restaurant
 from .serializers import MenuSerializer
 
 
+@api_view(['GET',])
 def api_menu_detail_view(request, id):
-    pass
+    
+    try:
+        menu_item = Menu.objects.get(id=id)
+    except Menu.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
