@@ -13,7 +13,7 @@ def api_menu_detail_view(request, id):
 
         variables:
                 - menu_item = stores the item gotten through url id parameter
-                - serializer = stors the serialized data
+                - serializer = stores the serialized data
     """
 
     #   Check if item id exists using try block
