@@ -29,7 +29,12 @@ def api_menu_detail_view(request, id):
 @api_view(['PUT',])
 def api_menu_update_view(request, id):
     """
+        An endpoint to update the  a menu item
 
+        variables:
+                - menu_item = stores the item gotten through url id parameter
+                - serializer = stores the serialized data
+                - data = a dictionary that stores response
     """
 
     #   Check if item id exists using try block
@@ -42,6 +47,7 @@ def api_menu_update_view(request, id):
     serializer = MenuSerializer(menu_item, data=request.data)
     data = {}
 
+    #   Serializer checks if data sent is valid
     if serializer.is_valid():
         serializer.save()
         data["success"] = "update successful"
