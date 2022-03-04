@@ -6,3 +6,5 @@ from .models import Menu, Restaurant
 from .serializers import MenuSerializer
 
 
+def api_menu_detail_view(request, id):
+    pass
