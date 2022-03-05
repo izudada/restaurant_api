@@ -54,3 +54,30 @@ def api_menu_update_view(request, id):
         return Response(data=data)
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE',])
+def api_menu_delete_view(request, id):
+    """
+        An endpoint to delete a menu item
+
+        variables:
+                - menu_item = stores the item gotten through url id parameter
+                - data = a dictionary that stores response
+                - action = for deleting an item
+    """
+
+    #   Check if item id exists using try block
+    try:
+        menu_item = Menu.objects.get(id=id)
+    except Menu.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    action = menu_item.delete()
+    data = {}
+
+    #   Check if action was sucessful or not
+    if action:
+        data["success"] = "delete successful"
+    else:
+        data["failure"] = "delete failed"
+    return Response(data=data)
