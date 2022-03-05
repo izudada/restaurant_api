@@ -10,7 +10,7 @@ from .views import (
 
 urlpatterns = [
     path('<int:id>/', api_menu_detail_view, name="menu_detail"),
-    path('<int:id>/update/', api_menu_update_view, name="update_menu"),
+    path('<int:id>/update', api_menu_update_view, name="update_menu"),
     path('<int:id>/delete', api_menu_delete_view, name="delete_menu"),
-    path('create/', api_menu_create_view, name="create_menu"),
+    path('create', api_menu_create_view, name="create_menu"),
 ]
