@@ -88,14 +88,19 @@ def api_menu_create_view(request):
         An endpoint to delete a menu item
 
         variables:
+                - restaurant = Get Hardcoded restaurant id
+                - menu_item = Using harcoded restaurant as foreign key
+                - serializer = serialize request data
     """
     #   Hardcoding the restaurant for now
     restaurant = Restaurant.objects.get(pk=1)
 
+    #   Using harcoded restaurant as foreign key
     menu_item = Menu(restaurant=restaurant)
 
     serializer = MenuSerializer(menu_item, data=request.data)
 
+    #   Check if serializer is valid
     if serializer.is_valid:
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATE)
