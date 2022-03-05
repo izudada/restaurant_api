@@ -101,7 +101,7 @@ def api_menu_create_view(request):
     serializer = MenuSerializer(menu_item, data=request.data)
 
     #   Check if serializer is valid
-    if serializer.is_valid:
+    if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATE)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
